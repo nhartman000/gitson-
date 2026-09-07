@@ -55,7 +55,7 @@ No expanded phrase for **GITSON** is asserted here unless/until an authoritative
 - MG8: https://github.com/nhartman000/mg8
 - GST: https://github.com/nhartman000/gst
 - G8SON: https://github.com/nhartman000/g8son
-- QSON: https://github.com/nhartman000/qson-
-- TCTA: https://github.com/nhartman000/TCTA-
+- QSON: https://github.com/nhartman000/qson
+- TCTA: https://github.com/nhartman000/TCTA
 
 See [`STATUS.md`](STATUS.md) for the compatibility/provenance boundary.
