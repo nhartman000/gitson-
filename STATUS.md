@@ -4,33 +4,55 @@
 
 ## Status
 
-GITSon is preserved as an **auxiliary / legacy structured transport format**.
+GITSon is **active**: the canon-bundle transport format accompanying
+`.mg8` outputs handed off to a receiving LLM. The bundle carries the
+NYCH + MG8 canon (full rules/spec text or pointers to the canonical
+GitHub repositories) so the receiver can ingest the rules needed to
+interpret the `.mg8` output without prior context.
 
-It is not part of the current canonical MG8 core family:
+### Status history
+
+An earlier revision of this repository recorded GITSon as
+auxiliary/legacy relative to the MG8 core family. That framing is
+superseded by deliberate repurposing (2026-10): the format was reassigned
+the canon-ingestion transport role described above. The history is kept
+here rather than erased.
+
+The MG8 core execution family is unchanged and GITSon does not replace
+any member of it:
 
 ```text
 .mg8pk → .mg8 → .ork / .gst / .g8son → .qson
 ```
 
-## Historical compatibility
-
-Earlier repositories and artifacts may use `.gitson` for gate graphs, Git-oriented structured packaging, compact interchange, or other experimental transport functions. Those artifacts remain valid as historical development material within their original implementation profile.
-
-They should not be used as evidence that current `.g8son` files require a `.gitson` wrapper.
-
 ## Platform-size limits
 
-Platform-specific size restrictions are external constraints. They must be represented by adapters or compatibility profiles, not hard-coded as permanent semantic properties of the `.gitson` format.
+Retained principle from the earlier revision: platform-specific size
+restrictions are external constraints. The splitter takes the current
+limit as a configurable parameter; it is never hard-coded as a permanent
+semantic property of the `.gitson` format. Oversized canon blocks are
+demoted to repository references — disclosed, never truncated.
+
+## Historical compatibility
+
+Pre-repurposing `.gitson` artifacts remain valid historical development
+material within their original implementation profile. They are not
+evidence that current `.g8son` files require a `.gitson` wrapper, and
+current bundles are identified by their `gitson_version` envelope field.
 
 ## Migration principle
 
 When modernizing an older implementation:
 
-1. determine what semantic role the historical `.gitson` artifact actually performs;
+1. determine what semantic role the historical `.gitson` artifact
+   actually performs;
 2. preserve it if required for reproduction;
-3. map gate definitions to `.g8son`, state to `.gst`, orchestration to `.ork`, trace events to `.qson`, and bounded units to `.mg8` where appropriate;
+3. map gate definitions to `.g8son`, state to `.gst`, orchestration to
+   `.ork`, trace events to `.qson`, and bounded units to `.mg8` where
+   appropriate;
 4. do not rename files mechanically without validating their semantics.
 
 ## Provenance
 
-The separate `.gitson` repository is retained so the historical format remains visible rather than being erased from the development record.
+This repository is retained so both the historical format and the
+repurposing decision remain visible in the development record.
